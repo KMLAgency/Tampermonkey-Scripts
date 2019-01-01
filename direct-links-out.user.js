@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Direct links out
-// @version      1.3
+// @version      1.5
 // @description  Removes all "You are leaving our site" and redirection stuff from links!
 // @license      MIT
 // @icon         https://www.sigtarp.gov/SiteAssets/template/img/external-link.svg
