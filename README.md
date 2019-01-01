@@ -14,11 +14,11 @@ Tampermonkey is an userscript manager, available for Chrome, Firefox, Safari, Op
 
 ## Scripts
 
-#### [google-view-image.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/google-view-image.user.js)
+#### > [google-view-image.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/google-view-image.user.js)
 Brings back the _View image_ button that google removed!
 ![Demo Screenshot](img/google-view-image.jpg)
 
-#### [direct-links-out.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/direct-links-out.user.js)
+#### > [direct-links-out.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/direct-links-out.user.js)
 Removes all "You are leaving our site" and redirection stuff from links! Which means a better anonymity and faster surfing!
 ###### Currently supported (main domain & subdomains):
 google (with local versions) - youtube - facebook - twitter - steamcommunity - deviantart - soundcloud - upwork - addons.mozilla - pixiv - tumblr - yandex (with local versions) - vk - ok - joyreactor - 4pda - kat (kickass torrents) (with mirrors) - danieldefo - yaplaka - pikarto - taker.
