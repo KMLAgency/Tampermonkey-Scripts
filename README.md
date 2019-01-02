@@ -24,5 +24,6 @@ Removes all "You are leaving our site" and redirection stuff from links! Which m
 google (with local versions) - youtube - facebook - twitter - steamcommunity - deviantart - soundcloud - upwork - addons.mozilla - pixiv - tumblr - yandex (with local versions) - vk - ok - joyreactor - 4pda - kat (kickass torrents) (with mirrors) - danieldefo - yaplaka - pikarto - taker.
 
 ### > [youtube-nyan-cat.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/youtube-nyan-cat.user.js)
-Brings Nyan Cat to YouTube with this custom video progress bar! Animated Nyan Cat leaves a rainbow trail behind her as she flies through space! _(works on music.youtube.com)_
+Brings Nyan Cat to YouTube with this custom video progress bar! Animated Nyan Cat leaves a rainbow trail behind her as she flies through space! _(works on music.youtube.com)_.
+
 ![Demo NyanCat Screenshot](img/youtube-nyan-cat.jpg)
