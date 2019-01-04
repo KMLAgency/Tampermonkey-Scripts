@@ -25,4 +25,5 @@ google (with local versions) - youtube - facebook - twitter - steamcommunity - d
 
 ### > [youtube-nyan-cat.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/youtube-nyan-cat.user.js)
 Brings Nyan Cat to YouTube with this custom video progress bar! Animated Nyan Cat leaves a rainbow trail behind her as she flies through space! _(works on music.youtube.com)_.
+
 ![Demo NyanCat Screenshot](img/youtube-nyan-cat.gif)
