@@ -3,10 +3,10 @@
 // @version      1.3
 // @description  Brings back the view image button that google removed!
 // @license      MIT
+// @author       Loky (StellarisStudio)
 // @icon         https://cdn4.iconfinder.com/data/icons/new-google-logo-2015/400/new-google-favicon-512.png
 // @namespace    https://github.com/StellarisStudio
 // @supportURL   https://github.com/StellarisStudio/Tampermonkey-Scripts
-// @author       Loky (StellarisStudio)
 // @homepageURL  https://github.com/StellarisStudio/Tampermonkey-Scripts
 // @include      /https://www\.?google\..+?/search/
 // @grant        none

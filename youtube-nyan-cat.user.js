@@ -3,10 +3,10 @@
 // @version       0.2.9
 // @description   Brings Nyan Cat to YouTube with this custom video progress bar! Animated Nyan Cat leaves a rainbow trail behind her as she flies through space!
 // @license       MIT
+// @author        Zoid & Loky (StellarisStudio)
 // @icon          https://lh5.ggpht.com/nct7SKXWQ3vQYQki0hQEGidMPxk_-8JqkhPnSWEjuv8bF3pd2Qj3RuAa-5IXa_hCdQ=w300
 // @namespace     https://github.com/StellarisStudio
 // @supportURL    https://github.com/StellarisStudio/Tampermonkey-Scripts
-// @author        Zoid & Loky (StellarisStudio)
 // @homepageURL   https://github.com/StellarisStudio/Tampermonkey-Scripts
 // @include       http://youtube.com/*
 // @include       https://youtube.com/*

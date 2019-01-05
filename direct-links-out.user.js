@@ -3,10 +3,10 @@
 // @version      1.5
 // @description  Removes all "You are leaving our site" and redirection stuff from links!
 // @license      MIT
+// @author       Loky (StellarisStudio)
 // @icon         https://www.sigtarp.gov/SiteAssets/template/img/external-link.svg
 // @namespace    https://github.com/StellarisStudio
 // @supportURL   https://github.com/StellarisStudio/Tampermonkey-Scripts
-// @author       Loky (StellarisStudio)
 // @homepageURL  https://github.com/StellarisStudio/Tampermonkey-Scripts
 // @grant       none
 //google
