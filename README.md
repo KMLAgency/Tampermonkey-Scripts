@@ -18,6 +18,9 @@ Tampermonkey is an userscript manager, available for Chrome, Firefox, Safari, Op
 Brings back the _View image_ button that google removed!
 ![Demo Google Screenshot](img/google-view-image.jpg)
 
+### > [netflix-skip-intro.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/netflix-skip-intro.user.js)
+Automatically click the netflix "Skip intro" button when it appears.
+
 ### > [spotify-uri-links.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/spotify-uri-links.user.js)
 Script to redirect open.spotify.com (artist,album,track,playlist) links to the desktop app!
 _(should works everywhere)_.
