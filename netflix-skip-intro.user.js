@@ -8,8 +8,8 @@
 // @namespace     https://github.com/StellarisStudio
 // @supportURL    https://github.com/StellarisStudio/Tampermonkey-Scripts
 // @homepageURL   https://github.com/StellarisStudio/Tampermonkey-Scripts
-// @match        *://www.netflix.com/*
-// @grant        none
+// @match         *://www.netflix.com/*
+// @grant         none
 // ==/UserScript==
 
 (function() {

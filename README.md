@@ -25,6 +25,9 @@ Automatically click the netflix "Skip intro" button when it appears.
 Script to redirect open.spotify.com (artist,album,track,playlist) links to the desktop app!
 _(should works everywhere)_.
 
+### > [facebook-default-volume.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/facebook-default-volume.user.js)
+Automatically set the default video volume to 0.25!
+
 ### > [youtube-nyan-cat.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/youtube-nyan-cat.user.js)
 Brings Nyan Cat to YouTube with this custom video progress bar!
 Nyan Cat is a cat (obviously ^^) with the body of a cherry pop tart who leaves a rainbow trail behind her as she flies through space!
