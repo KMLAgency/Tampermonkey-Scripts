@@ -4,7 +4,7 @@
 // @description   Automatically click the netflix "Skip intro" button when it appears.
 // @license       MIT
 // @author        Loky (StellarisStudio)
-// @icon          http://www.mulierchile.com/data/10/honeycomb-icon/honeycomb-icon-25.jpg
+// @icon          https://pbs.twimg.com/profile_images/966125580390252544/Cfnan8Nf.jpg
 // @namespace     https://github.com/StellarisStudio
 // @supportURL    https://github.com/StellarisStudio/Tampermonkey-Scripts
 // @homepageURL   https://github.com/StellarisStudio/Tampermonkey-Scripts
