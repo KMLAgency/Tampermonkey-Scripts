@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name          Netflix Expanded
 // @version       0.6.3
-// @description   More visible content, Remove the billboard promotions, Stretch video (remove black side), Better Subtitles!
+// @description   More visible content, Remove the billboard promotions, Stretch video (remove black side), Centered player controls, Better Subtitles!
 // @license       MIT
 // @author        Loky (StellarisStudio)
 // @icon          http://www.mulierchile.com/data/10/honeycomb-icon/honeycomb-icon-25.jpg
