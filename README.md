@@ -21,8 +21,9 @@ Brings back the _View image_ button that google removed!
 ### > [netflix-skip-intro.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/netflix-skip-intro.user.js)
 Automatically click the netflix "Skip intro" button when it appears.
 
-### > [netflix-extanded.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/netflix-extanded.user.js)
+### > [netflix-expanded.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/netflix-expanded.user.js)
 More visible content, Remove the billboard promotions, Stretch video (remove black side), Better Subtitles!
+![Demo Netflix Screenshot](img/netflix-expanded.png)
 
 ### > [spotify-uri-links.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/spotify-uri-links.user.js)
 Script to redirect open.spotify.com (artist,album,track,playlist) links to the desktop app!
