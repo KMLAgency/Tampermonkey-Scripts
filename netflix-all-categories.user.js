@@ -282,7 +282,6 @@
             menuTV.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsTV[i].id);
-            //a.setAttribute('style', 'text-transform:uppercase;');
             a.setAttribute('class', 'newCatsLink');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsTV[i].name));
@@ -303,7 +302,6 @@
             menuAA.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsAA[i].id);
-            //a.setAttribute('style', 'text-transform:uppercase;');
             a.setAttribute('class', 'newCatsLink');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsAA[i].name));
@@ -324,7 +322,6 @@
             menuSF.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsSF[i].id);
-            //a.setAttribute('style', 'text-transform:uppercase;');
             a.setAttribute('class', 'newCatsLink');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsSF[i].name));
@@ -345,7 +342,6 @@
             menuTH.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsTH[i].id);
-            //a.setAttribute('style', 'text-transform:uppercase;');
             a.setAttribute('class', 'newCatsLink');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsTH[i].name));
@@ -366,7 +362,6 @@
             menuCO.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsCO[i].id);
-            //a.setAttribute('style', 'text-transform:uppercase;');
             a.setAttribute('class', 'newCatsLink');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsCO[i].name));
@@ -387,7 +382,6 @@
             menuHO.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsHO[i].id);
-            //a.setAttribute('style', 'text-transform:uppercase;');
             a.setAttribute('class', 'newCatsLink');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsHO[i].name));
@@ -408,7 +402,6 @@
             menuDR.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsDR[i].id);
-            //a.setAttribute('style', 'text-transform:uppercase;');
             a.setAttribute('class', 'newCatsLink');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsDR[i].name));
@@ -429,7 +422,6 @@
             menuAN.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsAN[i].id);
-            //a.setAttribute('style', 'text-transform:uppercase;');
             a.setAttribute('class', 'newCatsLink');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsAN[i].name));
@@ -450,7 +442,6 @@
             menuKI.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsKI[i].id);
-            //a.setAttribute('style', 'text-transform:uppercase;');
             a.setAttribute('class', 'newCatsLink');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsKI[i].name));
@@ -471,7 +462,6 @@
             menuWO.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsWO[i].id);
-            //a.setAttribute('style', 'text-transform:uppercase;');
             a.setAttribute('class', 'newCatsLink');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsWO[i].name));
@@ -492,7 +482,6 @@
             menuDO.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsDO[i].id);
-            //a.setAttribute('style', 'text-transform:uppercase;');
             a.setAttribute('class', 'newCatsLink');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsDO[i].name));
@@ -513,7 +502,6 @@
             menuMU.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsMU[i].id);
-            //a.setAttribute('style', 'text-transform:uppercase;');
             a.setAttribute('class', 'newCatsLink');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsMU[i].name));
@@ -534,7 +522,6 @@
             menuD.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsD[i].id);
-            //a.setAttribute('style', 'text-transform:uppercase;');
             a.setAttribute('class', 'newCatsLink');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsD[i].name));
