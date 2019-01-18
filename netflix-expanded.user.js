@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name          Netflix Expanded
-// @version       0.6.3
+// @version       0.6.4
 // @description   More visible content, Remove the billboard promotions, Stretch video (remove black side), Centered player controls, Better Subtitles!
 // @license       MIT
 // @author        Loky (StellarisStudio)
@@ -37,10 +37,10 @@
     "   -webkit-text-stroke: 1px black;",
  	"	text-shadow: 2.5px 2.5px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }",
 	"",
-    ".PlayerControlsNeo__gradient-bottom { background-image: none; background-color: transparent; width: 75%; margin: auto; border-radius: 5px;}",
-    ".PlayerControlsNeo__progress-control-row { width: 80%!important; margin: auto; }",
+    ".PlayerControlsNeo__gradient-bottom { background-image: none; }",
+    ".PlayerControlsNeo__bottom-controls {background-color: rgba(0,0,0,0.3); width: 70%; bottom: -1em; margin: 0 auto; border-radius: 10px;}",
     ".time-remaining__time { color: #e50914; font-weight:bold;}",
-    ".PlayerControlsNeo__button-control-row { width: 70%!important; margin: auto; }",
+    ".PlayerControlsNeo__button-control-row { width: 85%; margin: auto; }",
     ".PlayerControlsNeo__bottom-controls .nfp-button-control { width: 1em; }",
     ".button-nfplayerBackTen { margin-left: 1em;}",
     ".svg-icon.svg-icon-nfplayerBackTen, .svg-icon.svg-icon-nfplayerFastForward { width: .9em!important; }",
