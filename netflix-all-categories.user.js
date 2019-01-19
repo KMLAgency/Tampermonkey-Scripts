@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name          Netflix All Categories
-// @version       0.4
+// @version       0.5
 // @description   Add a new menu entry with all the not empty catecories!
 // @license       MIT
 // @author        Loky (StellarisStudio)
@@ -16,7 +16,9 @@
     'use strict';
 
     GM_addStyle ( `
-        .newCatsLink:hover { color:#e50914; }
+        .catsLinkcolor:hover { color:#e50914; }
+        #newCatsContainer { position:absolute; top:3em; width:100vw; min-height:50%; background-color:rgba(20,20,20,0.95); color:white; z-index:9999; padding:0 0 20px 0; box-sizing:border-box; }
+        .closeCats { text-transform:uppercase; width:80%!important; margin:auto; padding:2px 5px; box-sizing:border-box; border-bottom:1px solid white; display:block; text-align:center; font-size:1em; font-weight:bold; }
         .titleCats { color:#e50914; margin:5px 0 0; }
         .ulCats { width:93%; margin:auto; }
         .liCats { display:inline; list-style-type:none; padding:3px 5px; font-size:.9em; }
@@ -240,41 +242,36 @@
             {id: 12549, name: "Soccer"}
         ];
 
-        var mainMenuContainerStyle = 'position:absolute; top:3em; display:block; width:100vw; min-height:50%; margin:auto; background-color:rgba(20,20,20,0.95); color:white; z-index:9999; padding:0 0 20px 0; box-sizing:border-box;';
-
         /* create additional menu item into netflix default menu */
         var FlixMenu = document.getElementsByClassName('tabbed-primary-navigation');
         var newNav = document.createElement('li'); //the new menu item
         newNav.classList.add('navigation-tab');//to get netflix default style
         var newNavLink = document.createElement('a'); //the link within menuitem
         newNavLink.classList.add('showFullGenreList');
-        newNavLink.setAttribute('href', 'javascript:document.getElementById("addmenucontainer").setAttribute("style", "' + mainMenuContainerStyle + '");');
-
+        newNavLink.setAttribute('href', 'javascript:document.getElementById("newCatsContainer").setAttribute("style", "display:block;");');
         newNav.appendChild(newNavLink);
-
         newNavLink.appendChild(document.createTextNode("All Categories"));
         FlixMenu[0].appendChild(newNav);
 
         /* create full genre list as hide/show container */
-        var mainMenuContainerDiv = document.createElement('div');
-        mainMenuContainerDiv.setAttribute('id', 'addmenucontainer');
-        mainMenuContainerDiv.setAttribute('style', 'display: none;');
-        document.body.appendChild(mainMenuContainerDiv);
-        var closer = document.createElement('a');
-        closer.setAttribute('href', 'javascript:document.getElementById("addmenucontainer").setAttribute("style", "display:none;");');
-        closer.setAttribute('style', 'text-transform:uppercase; width:80%!important; margin:auto; padding:2px 5px; box-sizing:border-box; border-bottom:1px solid white; display:block; text-align:center; font-size:1em; font-weight:bold;');
-        closer.setAttribute('class', 'newCatsLink');
-        closer.appendChild(document.createTextNode('close'));
-        mainMenuContainerDiv.appendChild(closer);
+        var newCatsContainerDiv = document.createElement('div');
+        newCatsContainerDiv.setAttribute('id', 'newCatsContainer');
+        newCatsContainerDiv.setAttribute('style', 'display: none;');
+        document.body.appendChild(newCatsContainerDiv);
+        var closeCats = document.createElement('a');
+        closeCats.setAttribute('href', 'javascript:document.getElementById("newCatsContainer").setAttribute("style", "display:none;");');
+        closeCats.setAttribute('class', 'catsLinkcolor closeCats');
+        closeCats.appendChild(document.createTextNode('close'));
+        newCatsContainerDiv.appendChild(closeCats);
 
          /* generate menu TV Shows */
         var menuTV = document.createElement('ul');
         menuTV.setAttribute('class', 'ulCats');
-        var titleTV = document.createElement('h5');
+        var titleTV = document.createElement('h4');
         titleTV.setAttribute('class', 'titleCats');
         menuTV.appendChild(titleTV);
         titleTV.appendChild(document.createTextNode("TV Shows"));
-        mainMenuContainerDiv.appendChild(menuTV);
+        newCatsContainerDiv.appendChild(menuTV);
         for(var i = 0; i < menuItemsTV.length;i++) {
             var li = document.createElement('li');
             li.setAttribute('class', 'liCats');
@@ -282,7 +279,7 @@
             menuTV.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsTV[i].id);
-            a.setAttribute('class', 'newCatsLink');
+            a.setAttribute('class', 'catsLinkcolor');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsTV[i].name));
         }
@@ -290,11 +287,11 @@
         /* generate menu Action & Adventure */
         var menuAA = document.createElement('ul');
         menuAA.setAttribute('class', 'ulCats');
-        var titleAA = document.createElement('h5');
+        var titleAA = document.createElement('h4');
         titleAA.setAttribute('class', 'titleCats');
         menuAA.appendChild(titleAA);
         titleAA.appendChild(document.createTextNode("Action & Adventure"));
-        mainMenuContainerDiv.appendChild(menuAA);
+        newCatsContainerDiv.appendChild(menuAA);
         for(var i = 0; i < menuItemsAA.length;i++) {
             var li = document.createElement('li');
             li.setAttribute('class', 'liCats');
@@ -302,7 +299,7 @@
             menuAA.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsAA[i].id);
-            a.setAttribute('class', 'newCatsLink');
+            a.setAttribute('class', 'catsLinkcolor');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsAA[i].name));
         }
@@ -310,11 +307,11 @@
         /* generate menu Sci-Fi & Fantasy */
         var menuSF = document.createElement('ul');
         menuSF.setAttribute('class', 'ulCats');
-        var titleSF = document.createElement('h5');
+        var titleSF = document.createElement('h4');
         titleSF.setAttribute('class', 'titleCats');
         menuSF.appendChild(titleSF);
         titleSF.appendChild(document.createTextNode("Sci-Fi"));
-        mainMenuContainerDiv.appendChild(menuSF);
+        newCatsContainerDiv.appendChild(menuSF);
         for(var i = 0; i < menuItemsSF.length;i++) {
             var li = document.createElement('li');
             li.setAttribute('class', 'liCats');
@@ -322,7 +319,7 @@
             menuSF.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsSF[i].id);
-            a.setAttribute('class', 'newCatsLink');
+            a.setAttribute('class', 'catsLinkcolor');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsSF[i].name));
         }
@@ -330,11 +327,11 @@
         /* generate menu Thrillers */
         var menuTH = document.createElement('ul');
         menuTH.setAttribute('class', 'ulCats');
-        var titleTH = document.createElement('h5');
+        var titleTH = document.createElement('h4');
         titleTH.setAttribute('class', 'titleCats');
         menuTH.appendChild(titleTH);
         titleTH.appendChild(document.createTextNode("Thrillers"));
-        mainMenuContainerDiv.appendChild(menuTH);
+        newCatsContainerDiv.appendChild(menuTH);
         for(var i = 0; i < menuItemsTH.length;i++) {
             var li = document.createElement('li');
             li.setAttribute('class', 'liCats');
@@ -342,7 +339,7 @@
             menuTH.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsTH[i].id);
-            a.setAttribute('class', 'newCatsLink');
+            a.setAttribute('class', 'catsLinkcolor');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsTH[i].name));
         }
@@ -350,11 +347,11 @@
         /* generate menu Comedies */
         var menuCO = document.createElement('ul');
         menuCO.setAttribute('class', 'ulCats');
-        var titleCO = document.createElement('h5');
+        var titleCO = document.createElement('h4');
         titleCO.setAttribute('class', 'titleCats');
         menuCO.appendChild(titleCO);
         titleCO.appendChild(document.createTextNode("Comedies"));
-        mainMenuContainerDiv.appendChild(menuCO);
+        newCatsContainerDiv.appendChild(menuCO);
         for(var i = 0; i < menuItemsCO.length;i++) {
             var li = document.createElement('li');
             li.setAttribute('class', 'liCats');
@@ -362,7 +359,7 @@
             menuCO.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsCO[i].id);
-            a.setAttribute('class', 'newCatsLink');
+            a.setAttribute('class', 'catsLinkcolor');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsCO[i].name));
         }
@@ -370,11 +367,11 @@
         /* generate menu Horror */
         var menuHO = document.createElement('ul');
         menuHO.setAttribute('class', 'ulCats');
-        var titleHO = document.createElement('h5');
+        var titleHO = document.createElement('h4');
         titleHO.setAttribute('class', 'titleCats');
         menuHO.appendChild(titleHO);
         titleHO.appendChild(document.createTextNode("Horror"));
-        mainMenuContainerDiv.appendChild(menuHO);
+        newCatsContainerDiv.appendChild(menuHO);
         for(var i = 0; i < menuItemsHO.length;i++) {
             var li = document.createElement('li');
             li.setAttribute('class', 'liCats');
@@ -382,7 +379,7 @@
             menuHO.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsHO[i].id);
-            a.setAttribute('class', 'newCatsLink');
+            a.setAttribute('class', 'catsLinkcolor');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsHO[i].name));
         }
@@ -390,11 +387,11 @@
         /* generate menu Dramas */
         var menuDR = document.createElement('ul');
         menuDR.setAttribute('class', 'ulCats');
-        var titleDR = document.createElement('h5');
+        var titleDR = document.createElement('h4');
         titleDR.setAttribute('class', 'titleCats');
         menuDR.appendChild(titleDR);
         titleDR.appendChild(document.createTextNode("Dramas"));
-        mainMenuContainerDiv.appendChild(menuDR);
+        newCatsContainerDiv.appendChild(menuDR);
         for(var i = 0; i < menuItemsDR.length;i++) {
             var li = document.createElement('li');
             li.setAttribute('class', 'liCats');
@@ -402,7 +399,7 @@
             menuDR.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsDR[i].id);
-            a.setAttribute('class', 'newCatsLink');
+            a.setAttribute('class', 'catsLinkcolor');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsDR[i].name));
         }
@@ -410,11 +407,11 @@
         /* generate menu Animes */
         var menuAN = document.createElement('ul');
         menuAN.setAttribute('class', 'ulCats');
-        var titleAN = document.createElement('h5');
+        var titleAN = document.createElement('h4');
         titleAN.setAttribute('class', 'titleCats');
         menuAN.appendChild(titleAN);
         titleAN.appendChild(document.createTextNode("Animes"));
-        mainMenuContainerDiv.appendChild(menuAN);
+        newCatsContainerDiv.appendChild(menuAN);
         for(var i = 0; i < menuItemsAN.length;i++) {
             var li = document.createElement('li');
             li.setAttribute('class', 'liCats');
@@ -422,7 +419,7 @@
             menuAN.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsAN[i].id);
-            a.setAttribute('class', 'newCatsLink');
+            a.setAttribute('class', 'catsLinkcolor');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsAN[i].name));
         }
@@ -430,11 +427,11 @@
         /* generate menu Kids */
         var menuKI = document.createElement('ul');
         menuKI.setAttribute('class', 'ulCats');
-        var titleKI = document.createElement('h5');
+        var titleKI = document.createElement('h4');
         titleKI.setAttribute('class', 'titleCats');
         menuKI.appendChild(titleKI);
         titleKI.appendChild(document.createTextNode("Kids & Family"));
-        mainMenuContainerDiv.appendChild(menuKI);
+        newCatsContainerDiv.appendChild(menuKI);
         for(var i = 0; i < menuItemsKI.length;i++) {
             var li = document.createElement('li');
             li.setAttribute('class', 'liCats');
@@ -442,7 +439,7 @@
             menuKI.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsKI[i].id);
-            a.setAttribute('class', 'newCatsLink');
+            a.setAttribute('class', 'catsLinkcolor');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsKI[i].name));
         }
@@ -450,11 +447,11 @@
         /* generate menu Worldwide */
         var menuWO = document.createElement('ul');
         menuWO.setAttribute('class', 'ulCats');
-        var titleWO = document.createElement('h5');
+        var titleWO = document.createElement('h4');
         titleWO.setAttribute('class', 'titleCats');
         menuWO.appendChild(titleWO);
         titleWO.appendChild(document.createTextNode("Worldwide"));
-        mainMenuContainerDiv.appendChild(menuWO);
+        newCatsContainerDiv.appendChild(menuWO);
         for(var i = 0; i < menuItemsWO.length;i++) {
             var li = document.createElement('li');
             li.setAttribute('class', 'liCats');
@@ -462,7 +459,7 @@
             menuWO.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsWO[i].id);
-            a.setAttribute('class', 'newCatsLink');
+            a.setAttribute('class', 'catsLinkcolor');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsWO[i].name));
         }
@@ -470,11 +467,11 @@
         /* generate menu Documentaries */
         var menuDO = document.createElement('ul');
         menuDO.setAttribute('class', 'ulCats');
-        var titleDO = document.createElement('h5');
+        var titleDO = document.createElement('h4');
         titleDO.setAttribute('class', 'titleCats');
         menuDO.appendChild(titleDO);
         titleDO.appendChild(document.createTextNode("Documentaries"));
-        mainMenuContainerDiv.appendChild(menuDO);
+        newCatsContainerDiv.appendChild(menuDO);
         for(var i = 0; i < menuItemsDO.length;i++) {
             var li = document.createElement('li');
             li.setAttribute('class', 'liCats');
@@ -482,7 +479,7 @@
             menuDO.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsDO[i].id);
-            a.setAttribute('class', 'newCatsLink');
+            a.setAttribute('class', 'catsLinkcolor');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsDO[i].name));
         }
@@ -490,11 +487,11 @@
         /* generate menu Music */
         var menuMU = document.createElement('ul');
         menuMU.setAttribute('class', 'ulCats');
-        var titleMU = document.createElement('h5');
+        var titleMU = document.createElement('h4');
         titleMU.setAttribute('class', 'titleCats');
         menuMU.appendChild(titleMU);
         titleMU.appendChild(document.createTextNode("Music"));
-        mainMenuContainerDiv.appendChild(menuMU);
+        newCatsContainerDiv.appendChild(menuMU);
         for(var i = 0; i < menuItemsMU.length;i++) {
             var li = document.createElement('li');
             li.setAttribute('class', 'liCats');
@@ -502,7 +499,7 @@
             menuMU.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsMU[i].id);
-            a.setAttribute('class', 'newCatsLink');
+            a.setAttribute('class', 'catsLinkcolor');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsMU[i].name));
         }
@@ -510,11 +507,11 @@
         /* generate menu Divers */
         var menuD = document.createElement('ul');
         menuD.setAttribute('class', 'ulCats');
-        var titleD = document.createElement('h5');
+        var titleD = document.createElement('h4');
         titleD.setAttribute('class', 'titleCats');
         menuD.appendChild(titleD);
         titleD.appendChild(document.createTextNode("Romantics - Divers - Sports"));
-        mainMenuContainerDiv.appendChild(menuD);
+        newCatsContainerDiv.appendChild(menuD);
         for(var i = 0; i < menuItemsD.length;i++) {
             var li = document.createElement('li');
             li.setAttribute('class', 'liCats');
@@ -522,7 +519,7 @@
             menuD.appendChild(li);
             var a = document.createElement('a');
             a.setAttribute('href', '/browse/genre/' + menuItemsD[i].id);
-            a.setAttribute('class', 'newCatsLink');
+            a.setAttribute('class', 'catsLinkcolor');
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsD[i].name));
         }
