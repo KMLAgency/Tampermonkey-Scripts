@@ -279,7 +279,7 @@
         newNavLink.classList.add('showFullGenreList');
         newNavLink.setAttribute('href', 'javascript:document.getElementById("newWrapper").setAttribute("style", "display:flex;");');
         newNav.appendChild(newNavLink);
-        newNavLink.appendChild(document.createTextNode("All Categories"));
+        newNavLink.appendChild(document.createTextNode("Categories"));
         FlixMenu[0].appendChild(newNav);
 
         /* create full genre list as hide/show container */
