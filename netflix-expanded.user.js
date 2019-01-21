@@ -52,6 +52,7 @@
 
         #scrollTop { display:none; position:fixed; right:2em; bottom:2em; padding:5px; color:#e5e5e5; background-color:#e50914; opacity:.5; border:1px solid #e50914; border-radius:8px; z-index:9999; }
         #scrollTop:hover { color:#e50914; background-color:transparent; opacity:1; border:1px solid #e50914; }
+        #scrollTop:focus { outline:none }
         .arrow-up { width:0; height:0; border-left:10px solid transparent; border-right:10px solid transparent; border-bottom:10px solid white; border-radius:4px; }
         #scrollTop:hover .arrow-up { border-bottom:10px solid #e50914; }
 
