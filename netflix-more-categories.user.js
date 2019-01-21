@@ -22,9 +22,9 @@
         .newNav a:hover:before, #newCatsContainer a { color:#e5e5e5; }
         .newReleases:hover { color:#e5e5e5!important; }
         #newWrapper { position:fixed; top:0; width:100%; height:100%; display:flex; display:-webkit-flex; -webkit-justify-content:center; justify-content:center; z-index:9999; }
-        #newCatsContainer { top:4.3em; width:50vw; min-height:23vw; max-height:auto; background-color:rgba(20,20,20,0.95); margin:auto; padding:20px; box-sizing:border-box; border:1px solid rgb(229, 9, 20, .5); border-radius:8px; }
+        #newCatsContainer { top:4.3em; width:50vw; min-height:23vw; max-height:auto; background-color:rgba(20,20,20,.95); margin:auto; padding:20px; box-sizing:border-box; border:1px solid rgb(229,9,20,.5); border-radius:8px; }
         .ulSpCats { text-align:center; margin-bottom:-10px; }
-        .ulSubCats { border-bottom:1px solid rgb(229, 9, 20, .5); text-align:center; }
+        .ulSubCats { border-bottom:1px solid rgb(229,9,20,.5); text-align:center; }
         .liSubCats { display:inline-block; list-style-type:none; padding:2px 10px; font-size:1.2em; }
         .closeCats { float:right; padding:2px 5px; display:block; font-size:1em; font-weight:bold; text-transform:uppercase; }
         .subDiv { padding:5px 0; }
