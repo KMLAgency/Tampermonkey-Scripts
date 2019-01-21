@@ -77,10 +77,13 @@
         ];
 
         var menuItemsSF = [
+            {id: 1492, name: "Sci-Fi & Fantasy"},
             {id: 1568, name: "Action Sci-Fi & Fantasy"},
             {id: 3327, name: "Alien Sci-Fi"},
+            {id: 3592, name: "Dark Sci-Fi & Fantasy"},
             {id: 9744, name: "Fantasy Movies"},
             {id: 6926, name: "Sci-Fi Adventure"},
+            {id: 3916, name: "Sci-Fi Dramas"},
             {id: 1694, name: "Sci-Fi Horror Movies"},
             {id: 11014, name: "Sci-Fi Thrillers"}
         ];
