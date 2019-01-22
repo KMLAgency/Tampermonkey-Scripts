@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name          Netflix Expanded
-// @version       0.8
-// @description   More visible content, Remove the billboard promotions, Add a "Go Top" Button, Centered player controls, Better Subtitles, Stretch video by default (remove black side) and add a button to control it!!
+// @version       1.0
+// @description   More visible content, Remove the billboard promotions and Disable Mouseover Trailers Auto-Preview, Add a "Go Top" Button, Centered player controls, Better Subtitles, Stretch video by default (remove black side) and add a button to control it!!
 // @license       MIT
 // @author        Loky (StellarisStudio)
 // @icon          https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/intermediary/f/05100836-b28d-4395-a29d-2f17b751c23f/dcc89w8-27bd9fa2-7ebd-4699-8b7f-383286d6e41d.png
@@ -32,6 +32,10 @@
 
         .billboard-row { display:none!important; }
         .pinning-header { height:70px; margin-bottom:40px!important; }
+        .mainView .slider-item div.bob-card div.bob-video-merch-player-wrapper { display:none!important; }
+
+        .imdb4nf-prefix, .imdb4nf-rating { color:#e8b708; }
+        .imdb4nf-votes { font-size:10px; }
 
         video { object-fit:fill; }
         .player-timedtext-text-container { bottom:11%; margin:auto; width:65%; }
@@ -65,17 +69,37 @@
     ` );
 
     /* Inject the CSS */
-    if (typeof GM_addStyle != "undefined") { GM_addStyle(css);
-    } else if (typeof PRO_addStyle != "undefined") { PRO_addStyle(css);
-    } else if (typeof addStyle != "undefined") { addStyle(css);
-    } else {
+    //if (typeof GM_addStyle != "undefined") { GM_addStyle(css);
+    //} else if (typeof PRO_addStyle != "undefined") { PRO_addStyle(css);
+    //} else if (typeof addStyle != "undefined") { addStyle(css);
+    //} else {
        var sheet = document.createElement("style");
        sheet.type = "text/css";
        sheet.appendChild(document.createTextNode(css));
        var heads = document.getElementsByTagName("head");
          if (heads.length > 0) { heads[0].appendChild(sheet);
          } else { document.documentElement.appendChild(sheet); } // no head yet, stick it whereever
-    }
+    //}
+
+    /* Disable Mouseover Trailers Auto-Preview */
+    var config = { disableJawBoneBigPreview: false };
+    var observer = new MutationObserver(function(mutations) {
+        for (var mutation of mutations) {
+            for (var node of mutation.addedNodes) {
+                if (node.nodeType === 1 && node.tagName === 'VIDEO') {
+                    if (config.disableJawBoneBigPreview || !node.matches('.jawBoneContainer video')) {
+                        node.muted = "true";
+                        node.remove();
+                    }
+                } else if (node.className == 'bob-video-merch-player-wrapper') {
+                    node.remove();
+                }
+            }
+        }
+    });
+    window.setTimeout(function() {
+      observer.observe(document.querySelector('#appMountPoint'), { childList: true, subtree: true });
+    }, 100);
 
     function goTop() { scroll(0, 0); } // create the Go Top function!
     /* create The Go Top Button */

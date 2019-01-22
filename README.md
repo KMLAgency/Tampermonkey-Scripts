@@ -22,7 +22,7 @@ Brings back the _View image_ button that google removed!
 Automatically click the netflix "Skip intro" button when it appears.
 
 ### > [netflix-expanded.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/netflix-expanded.user.js)
-More visible content, Remove the billboard promotions, Add a "Go Top" Button, Centered player controls, Better Subtitles, Stretch video by default (remove black side) and add a button to control it!!
+More visible content, Remove the billboard promotions and Disable Mouseover Trailers Auto-Preview, Add a "Go Top" Button, Centered player controls, Better Subtitles, Stretch video by default (remove black side) and add a button to control it!!
 ![Demo Netflix Screenshot2](img/netflix-expanded.png)
 
 ### > [netflix-more-categories.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/netflix-more-categories.user.js)
