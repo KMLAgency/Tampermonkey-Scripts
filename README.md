@@ -26,7 +26,7 @@ More visible content, Remove the billboard promotions and Disable Mouseover Trai
 ![Demo Netflix Screenshot2](img/netflix-expanded.png)
 
 ### > [netflix-more-categories.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/netflix-more-categories.user.js)
-Add a new menu entry with a lot of categories!
+Add new menu entry to the main menu, "My Rankings", "My history" and a new menu with a lot of hidden categories!
 ![Demo Netflix Screenshot](img/netflix-categories.jpg)
 
 ### > [spotify-uri-links.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/spotify-uri-links.user.js)

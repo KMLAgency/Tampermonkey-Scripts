@@ -20,15 +20,18 @@
         .newNav a:hover, .newReleases, .catsLinkcolor:hover { color:#e50914!important; }
         .newNav { display:flex!important; }
         .newNav a { margin-right:1.4em; }
-        .newNavCats:hover:before, #newCatsContainer a { color:#e5e5e5; }
+        .newNavCats:hover:before, #newCatsContainer a{ color:#e5e5e5; }
         .newNavCats:before { content: "+"; margin-right:3px; color:#e50914; }
         .newReleases:hover { color:#e5e5e5!important; }
         #newWrapper { position:fixed; top:0; width:100%; height:100%; display:flex; display:-webkit-flex; -webkit-justify-content:center; justify-content:center; z-index:9999; }
-        #newCatsContainer { top:4.3em; width:50vw; min-height:23vw; max-height:auto; background-color:rgba(20,20,20,.95); margin:auto; padding:20px; box-sizing:border-box; border:1px solid rgb(229,9,20,.5); border-radius:8px; }
+        #newCatsContainer { top:4.3em; width:50vw; min-height:23vw; max-height:auto; background-color:rgba(20,20,20,.95); margin:auto; padding:20px; box-sizing:border-box; border:1px solid rgb(229,9,20,.5); border-radius:8px; -webkit-transform: translateZ(0); }
         .ulSpCats { text-align:center; margin-bottom:-10px; }
         .ulSubCats { border-bottom:1px solid rgb(229,9,20,.5); text-align:center; }
         .liSubCats { display:inline-block; list-style-type:none; padding:2px 10px; font-size:1.2em; }
         .closeCats { float:right; padding:2px 5px; display:block; font-size:1em; font-weight:bold; text-transform:uppercase; }
+        .madeStellaris { position:absolute; right:1em; bottom:.8em; padding:2px 5px; color:#e50914!important; font-size:.8em; opacity:.4; }
+        .madeStellaris:hover { color:#e5cece!important; }
+        .moreCats { margin-left:10px; font-size:.75em; }
         .subDiv { padding:5px 0; }
         .titleCats { margin:0 0 3px 0; padding:0 2em; font-size:1.2em; color:#e50914; }
         .liCats { display:inline-block; list-style-type:none; padding:3px 10px; font-size:1em; }
@@ -296,6 +299,12 @@
            closeCatsMenu.setAttribute('class', 'catsLinkcolor closeCats');
            closeCatsMenu.appendChild(document.createTextNode('x'));
            newCatsContainerDiv.appendChild(closeCatsMenu);
+           var madeStellaris = document.createElement('a');
+           madeStellaris.setAttribute('href', 'https://github.com/StellarisStudio/');
+           madeStellaris.setAttribute('target', '_blank')
+           madeStellaris.setAttribute('class', 'madeStellaris');
+           madeStellaris.appendChild(document.createTextNode('Made by Stellaris Studio!'));
+           newCatsContainerDiv.appendChild(madeStellaris);
 
         /* create Sub Menu special list */
         var subSpecialCats = document.createElement('ul');
@@ -443,6 +452,15 @@
               if (subSPdiv.style.display == "none") { subSPdiv.style.display = "block";subDIdiv.style.display = "block";subTVdiv.style.display = "none";subAAdiv.style.display = "none";subSFdiv.style.display = "none";subTHdiv.style.display = "none";subHOdiv.style.display = "none";subCOdiv.style.display = "none";subDRdiv.style.display = "none";subROdiv.style.display = "none";subANdiv.style.display = "none";subKIdiv.style.display = "none";subWOdiv.style.display = "none";subDOdiv.style.display = "none";subMUdiv.style.display = "none";
               } else { subSPdiv.style.display = "none"; subDIdiv.style.display = "none"; }
             });
+        var li = document.createElement('li'); // Even More Categories !
+            li.setAttribute('class', 'liSubCats');
+            subMenuCats.appendChild(li);
+            var evenMoreCats = document.createElement('a');
+            evenMoreCats.setAttribute('href', 'http://ogres-crypt.com/public/NetFlix-Streaming-Genres2.html');
+            evenMoreCats.setAttribute('target', '_blank')
+            evenMoreCats.setAttribute('class', 'catsLinkcolor moreCats');
+            evenMoreCats.appendChild(document.createTextNode('Even More Categories...'));
+            li.appendChild(evenMoreCats);
 
         /* generate menu TV Shows */
         var subTVdiv = document.createElement('div');
