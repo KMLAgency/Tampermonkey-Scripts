@@ -99,7 +99,7 @@
     });
     window.setTimeout(function() {
       observer.observe(document.querySelector('#appMountPoint'), { childList: true, subtree: true });
-    }, 100);
+  }, 200);
 
     function goTop() { scroll(0, 0); } // create the Go Top function!
     /* create The Go Top Button */
