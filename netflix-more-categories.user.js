@@ -17,9 +17,11 @@
 
     // CSS
     GM_addStyle ( `
-        .catsLinkcolor:hover, .newNav a:hover, .newReleases { color:#e50914!important; }
-        .newNav a:before { content: "+"; margin-right:3px; color:#e50914; }
-        .newNav a:hover:before, #newCatsContainer a { color:#e5e5e5; }
+        .newNav a:hover, .newReleases, .catsLinkcolor:hover { color:#e50914!important; }
+        .newNav { display:flex!important; }
+        .newNav a { margin-right:1.4em; }
+        .newNavCats:hover:before, #newCatsContainer a { color:#e5e5e5; }
+        .newNavCats:before { content: "+"; margin-right:3px; color:#e50914; }
         .newReleases:hover { color:#e5e5e5!important; }
         #newWrapper { position:fixed; top:0; width:100%; height:100%; display:flex; display:-webkit-flex; -webkit-justify-content:center; justify-content:center; z-index:9999; }
         #newCatsContainer { top:4.3em; width:50vw; min-height:23vw; max-height:auto; background-color:rgba(20,20,20,.95); margin:auto; padding:20px; box-sizing:border-box; border:1px solid rgb(229,9,20,.5); border-radius:8px; }
@@ -33,7 +35,6 @@
     ` );
 
     window.setTimeout(function() {
-
         var menuItemsTV = [
             {id: 10673, name: "Action & Adventure"},
             {id: 89814, name: "Award-winning TV Shows"},
@@ -59,7 +60,6 @@
             {id: 1372, name: "Sci-Fi & Fantasy"},
             {id: 60951, name: "Teen TV Shows"}
         ];
-
         var menuItemsAA = [
             {id: 1365, name: "Action & Adventure"},
             {id: 43040, name: "Action Comedies"},
@@ -75,7 +75,6 @@
             {id: 8985, name: "Martial Arts Movies"},
             {id: 2125, name: "Military Action & Adventure"}
         ];
-
         var menuItemsSF = [
             {id: 1492, name: "Sci-Fi & Fantasy"},
             {id: 1568, name: "Action Sci-Fi & Fantasy"},
@@ -87,7 +86,6 @@
             {id: 1694, name: "Sci-Fi Horror Movies"},
             {id: 11014, name: "Sci-Fi Thrillers"}
         ];
-
         var menuItemsTH = [
             {id: 8933, name: "Thrillers"},
             {id: 46588, name: "Classic Thrillers"},
@@ -101,7 +99,6 @@
             {id: 972, name: "Steamy Thrillers"},
             {id: 11140, name: "Supernatural Thrillers"}
         ];
-
         var menuItemsHO = [
             {id: 8711, name: "Horror Movies"},
             {id: 8195, name: "B-Horror Movies"},
@@ -115,7 +112,6 @@
             {id: 75930, name: "Werewolfs"},
             {id: 75405, name: "Zombies"}
         ];
-
         var menuItemsCO = [
             {id: 1252, name: "Campy Movies"},
             {id: 6548, name: "Comedies"},
@@ -134,7 +130,6 @@
             {id: 11559, name: "Stand-up Comedy"},
             {id: 3519, name: "Teen Comedies"}
         ];
-
         var menuItemsDR = [
             {id: 5763, name: "Dramas"},
             {id: 3179, name: "Biographical Dramas"},
@@ -152,7 +147,6 @@
             {id: 3947, name: "Social Issue Dramas"},
             {id: 7243, name: "Sports Dramas"}
         ];
-
         var menuItemsRO = [
             {id: 8883, name: "Romantic Movies"},
             {id: 31273, name: "Classic Romantic Movies"},
@@ -162,7 +156,6 @@
             {id: 9916, name: "Romantic Independent Movies"},
             {id: 3329, name: "Romantic LGBTQ Movies"}
         ];
-
         var menuItemsAN = [
             {id: 11881, name: "Adult Animation"},
             {id: 4698, name: "Animation"},
@@ -176,7 +169,6 @@
             {id: 10695, name: "Horror"},
             {id: 2729, name: "Sci-Fi"}
         ];
-
         var menuItemsKI = [
             {id: 27346, name: "Kids TV"},
             {id: 52843, name: "Kids Music"},
@@ -193,7 +185,6 @@
             {id: 561, name: "Movies (8 to 10 years)"},
             {id: 6962, name: "Movies (11 to 12 years)"}
         ];
-
         var menuItemsWO = [
             {id: 3761, name: "African"},
             {id: 5230, name: "Australian"},
@@ -216,7 +207,6 @@
             {id: 9196, name: "Southeast Asian"},
             {id: 58741, name: "Spanish"}
         ];
-
         var menuItemsDO = [
             {id: 6839, name: "Documentaries"},
             {id: 10105, name: "Docuseries"},
@@ -239,7 +229,6 @@
             {id: 180, name: "Sports"},
             {id: 1159, name: "Travel & Adventure"}
         ];
-
         var menuItemsMU = [
             {id: 1701, name: "Music"},
             {id: 32392, name: "Classic Musicals"},
@@ -255,7 +244,6 @@
             {id: 9472, name: "Urban & Dance Concerts"},
             {id: 2856, name: "World Music Concerts"}
         ];
-
         var menuItemsSP = [
             {id: 9327, name: "Sports & Fitness"},
             {id: 12339, name: "Baseball"},
@@ -264,7 +252,6 @@
             {id: 12803, name: "Football"},
             {id: 12549, name: "Soccer"}
         ];
-
         var menuItemsDI = [
             {id: 7077, name: "Independent Movies"},
             {id: 29764, name: "Art House Movies"},
@@ -278,11 +265,22 @@
         var newNav = document.createElement('li'); //the new menu item
         newNav.setAttribute('class', 'newNav');
         newNav.classList.add('navigation-tab');//to get netflix default style
-        var newNavLink = document.createElement('a'); //the link within menuitem
-        newNavLink.classList.add('showFullGenreList');
-        newNavLink.setAttribute('href', 'javascript:document.getElementById("newWrapper").setAttribute("style", "display:flex;");');
-        newNav.appendChild(newNavLink);
-        newNavLink.appendChild(document.createTextNode("Categories"));
+           var newNavRat = document.createElement('a'); //the link within menuitem
+           newNavRat.classList.add('showFullGenreList');
+           newNavRat.setAttribute('href', '/MoviesYouveSeen');
+           newNav.appendChild(newNavRat);
+           newNavRat.appendChild(document.createTextNode("My Ratings"));
+           var newNavAct = document.createElement('a'); //the link within menuitem
+           newNavAct.classList.add('showFullGenreList');
+           newNavAct.setAttribute('href', '/viewingactivity');
+           newNav.appendChild(newNavAct);
+           newNavAct.appendChild(document.createTextNode("My Activity"));
+           var newNavCats = document.createElement('a'); //the link within menuitem
+           newNavCats.classList.add('showFullGenreList');
+           newNavCats.classList.add('newNavCats');
+           newNavCats.setAttribute('href', 'javascript:document.getElementById("newWrapper").setAttribute("style", "display:flex;");');
+           newNav.appendChild(newNavCats);
+           newNavCats.appendChild(document.createTextNode("Categories"));
         FlixMenu[0].appendChild(newNav);
 
         /* create full genre list as hide/show container */
@@ -293,11 +291,11 @@
         var newCatsContainerDiv = document.createElement('div');
         newCatsContainerDiv.setAttribute('id', 'newCatsContainer');
         newWrapperDiv.appendChild(newCatsContainerDiv);
-        var closeCatsMenu = document.createElement('a');
-        closeCatsMenu.setAttribute('href', 'javascript:document.getElementById("newWrapper").setAttribute("style", "display:none;");');
-        closeCatsMenu.setAttribute('class', 'catsLinkcolor closeCats');
-        closeCatsMenu.appendChild(document.createTextNode('x'));
-        newCatsContainerDiv.appendChild(closeCatsMenu);
+           var closeCatsMenu = document.createElement('a');
+           closeCatsMenu.setAttribute('href', 'javascript:document.getElementById("newWrapper").setAttribute("style", "display:none;");');
+           closeCatsMenu.setAttribute('class', 'catsLinkcolor closeCats');
+           closeCatsMenu.appendChild(document.createTextNode('x'));
+           newCatsContainerDiv.appendChild(closeCatsMenu);
 
         /* create Sub Menu special list */
         var subSpecialCats = document.createElement('ul');
@@ -467,7 +465,6 @@
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsTV[i].name));
         }
-
         /* generate menu Action & Adventure */
         var subAAdiv = document.createElement('div');
         subAAdiv.setAttribute('class', 'subDiv');
@@ -489,7 +486,6 @@
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsAA[i].name));
         }
-
         /* generate menu Sci-Fi & Fantasy */
         var subSFdiv = document.createElement('div');
         subSFdiv.setAttribute('class', 'subDiv');
@@ -511,7 +507,6 @@
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsSF[i].name));
         }
-
         /* generate menu Thrillers */
         var subTHdiv = document.createElement('div');
         subTHdiv.setAttribute('class', 'subDiv');
@@ -533,7 +528,6 @@
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsTH[i].name));
         }
-
         /* generate menu Horror */
         var subHOdiv = document.createElement('div');
         subHOdiv.setAttribute('class', 'subDiv');
@@ -555,7 +549,6 @@
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsHO[i].name));
         }
-
         /* generate menu Comedies */
         var subCOdiv = document.createElement('div');
         subCOdiv.setAttribute('class', 'subDiv');
@@ -577,7 +570,6 @@
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsCO[i].name));
         }
-
         /* generate menu Dramas */
         var subDRdiv = document.createElement('div');
         subDRdiv.setAttribute('class', 'subDiv');
@@ -599,7 +591,6 @@
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsDR[i].name));
         }
-
         /* generate menu Romantics */
         var subROdiv = document.createElement('div');
         subROdiv.setAttribute('class', 'subDiv');
@@ -621,7 +612,6 @@
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsRO[i].name));
         }
-
         /* generate menu Animes */
         var subANdiv = document.createElement('div');
         subANdiv.setAttribute('class', 'subDiv');
@@ -643,7 +633,6 @@
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsAN[i].name));
         }
-
         /* generate menu Kids */
         var subKIdiv = document.createElement('div');
         subKIdiv.setAttribute('class', 'subDiv');
@@ -665,7 +654,6 @@
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsKI[i].name));
         }
-
         /* generate menu Worldwide */
         var subWOdiv = document.createElement('div');
         subWOdiv.setAttribute('class', 'subDiv');
@@ -687,7 +675,6 @@
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsWO[i].name));
         }
-
         /* generate menu Documentaries */
         var subDOdiv = document.createElement('div');
         subDOdiv.setAttribute('class', 'subDiv');
@@ -709,7 +696,6 @@
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsDO[i].name));
         }
-
         /* generate menu Music */
         var subMUdiv = document.createElement('div');
         subMUdiv.setAttribute('class', 'subDiv');
@@ -731,7 +717,6 @@
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsMU[i].name));
         }
-
         /* generate menu Sports */
         var subSPdiv = document.createElement('div');
         subSPdiv.setAttribute('class', 'subDiv');
@@ -753,7 +738,6 @@
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsSP[i].name));
         }
-
         /* generate menu Divers */
         var subDIdiv= document.createElement('div');
         subDIdiv.setAttribute('class', 'subDiv');
@@ -775,6 +759,5 @@
             li.appendChild(a);
             a.appendChild(document.createTextNode(menuItemsDI[i].name));
         }
-
     }, 60);
 })();
