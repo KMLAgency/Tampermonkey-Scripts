@@ -1,73 +1,74 @@
 // ==UserScript==
 // @name         Google View Image
-// @version      1.3
+// @version      1.5
 // @description  Brings back the view image button that google removed!
 // @license      MIT
-// @author       Loky (StellarisStudio)
 // @icon         https://cdn4.iconfinder.com/data/icons/new-google-logo-2015/400/new-google-favicon-512.png
 // @namespace    https://github.com/StellarisStudio
 // @supportURL   https://github.com/StellarisStudio/Tampermonkey-Scripts
+// @author       Loky (StellarisStudio)
 // @homepageURL  https://github.com/StellarisStudio/Tampermonkey-Scripts
-// @include      /https://www\.?google\..+?/search/
 // @grant        none
+// @include      /https://www\.?google\..+?/search/
+// @require      https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
 // ==/UserScript==
 
-(function() {
-    'use strict';
+var xurl, progressBar, xIMG, xPlaceholder, xCurrentClass, xPos;
 
-    if (isGoogleImgs()) {
-        makeObserver();
-    }
+$(window).on("load", function() {
+	setTimeout(function() { Checker(); }, 1000);
 
-
-    //adds view image buttons to all immersive containers (usually 3 of them)
-    function addButtons() {
-        var containers = document.getElementsByClassName('immersive-container');
-
-        for (let c = 0; c < containers.length; c++) { //put a button in each immersive container
-            var container = containers[c];
-            var table = container.getElementsByClassName('irc_but_r')[0];
-            var row = table.getElementsByTagName('tr')[0];
-
-            var oldLinks = table.getElementsByClassName('viewImg');
-            for (let l = 0; l < oldLinks.length; l++) { //get rid of the old view image button
-                oldLinks[l].remove();
-            }
-
-            var newBtn = document.createElement('td');
-            newBtn.setAttribute('class', 'viewImg');
-            var btnLink = document.createElement('a');
-            btnLink.href = container.getElementsByClassName('irc_mi')[0].src;
-            newBtn.appendChild(btnLink);
-            var text = document.createElement('span');
-            text.innerText = "View image";
-            btnLink.appendChild(text);
-
-            row.childNodes[0].after(newBtn);
-        }
-    }
+	$(window).click(function(e) {
+		if ( $(e.target).prop("tagName") == 'IMG' ) {
+      $("#viewIMG").remove();
+      setTimeout(function() {
+    		Checker();
+      }, 500);
+  	}
+	});
+});
 
 
-    //creates a mutation observer that adds view image buttons every time an image is clicked
-    function makeObserver() {
-        var observer = new MutationObserver(function(mutation){
-            observer.disconnect();
-            addButtons();
-            reconnect(this);
-        });
-        reconnect(observer);
+function Checker() { setTimeout(function() {
+  $("#viewIMG").remove();
+	$( '#irc-ss>div' ).each(function (index, obj) {
+ 	 if ( $( obj ).css('display') != 'none' ) {
+		progressBar = $( obj ).find('.jfk-progressBar-blocking');
+			if ( $(progressBar).css('display') != 'none' )
+      {
+  			Checker();
+    		return true;
+			} else {
+  			theWork(obj);
+			}
+   }
+	});
+}, 300); }
 
-        function reconnect(observer) {
-            var config = {
-            'childList': true,
-            'subtree': true
-            };
-            observer.observe(document, config);
-        }
-    }
+function theWork(obj) {
 
-    //checks if we're on google images
-    function isGoogleImgs() {
-        return document.getElementsByClassName('rg_ic').length !== 0;
-    }
-})();
+			xIMG = $(obj).find('img');
+      xurl = $(xIMG).attr("src");
+
+      xPlaceholder = $('.hZC4Sd > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)');
+  		xCurrentClass = $('.hZC4Sd > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > a:nth-child(2)').attr('class');
+
+			if (!$("#viewIMG").length) {
+  			$(xPlaceholder).append('<a class="'+xCurrentClass+'" id="viewIMG" href="'+xurl+'" title="Open image in new tab" target="_blank" ><span>View image</span></a>');
+			}
+
+      if ( $(xurl).attr("href").startsWith('data:image/') )
+       {
+        $("#viewIMG").attr("href") = $("#viewIMG").parent().parent().parent().parent().parent().find('.i30052').find('img').attr('src');
+       }
+
+}
+
+$( '<style>' ).text(' \
+#viewIMG {position:relative; z-index:1; top:0; text-decoration:none !important;} \
+#viewIMG > span {padding-left:3px;} \
+#viewIMG:hover {filter:brightness(1.3);} \
+div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > a:nth-child(3), .hZC4Sd > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > a:nth-child(1) {margin-right:-0px;} \
+.hZC4Sd > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > a:nth-child(1) {pointer-events:none !important;} \
+.hZC4Sd > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > a:nth-child(1) > div:nth-child(1) {pointer-events:all !important;} \
+' ).appendTo( document.head );

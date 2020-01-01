@@ -15,6 +15,7 @@ Tampermonkey is an userscripts manager, available for Chrome, Firefox, Safari, O
 
 ## Scripts
 ### > [google-view-image.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/google-view-image.user.js)
+&#x1F534; **Updated for Google 2020 !!**  
 Brings back the _View image_ button that google removed!  
 ![Demo Google Screenshot](img/google-view-image.jpg)
 
