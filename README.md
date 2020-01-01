@@ -14,16 +14,15 @@ Tampermonkey is an userscripts manager, available for Chrome, Firefox, Safari, O
 1. Voila!
 
 ## Scripts
-### > [google-view-image.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/google-view-image.user.js)
-&#x1F534; **Updated for Google 2020 !!**  
+### > [google-view-image.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/google-view-image.user.js) &#x1F195;**Updated for Google 2020 !!**  
 Brings back the _View image_ button that google removed!  
 ![Demo Google Screenshot](img/google-view-image.jpg)
 
-### > [spotify-uri-links.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/spotify-uri-links.user.js)
+### > [spotify-uri-links.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/spotify-uri-links.user.js) &#x1F6A8;**Outdated**
 Script to redirect open.spotify.com (artist,album,track,playlist) links to the desktop app!
 _(should works everywhere)_.
 
-### > [facebook-default-volume.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/facebook-default-volume.user.js)
+### > [facebook-default-volume.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/facebook-default-volume.user.js) &#x1F6A8;**Outdated**
 Automatically set the default video volume to 0.25!
 
 ### > [youtube-nyan-cat.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/youtube-nyan-cat.user.js)
@@ -32,7 +31,7 @@ Nyan Cat is a cat (obviously ^^) with the body of a cherry pop tart who leaves a
 _(works on music.youtube.com)_.  
 ![Demo NyanCat Screenshot](img/youtube-nyan-cat.gif)
 
-### > [direct-links-out.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/direct-links-out.user.js)
+### > [direct-links-out.user.js](https://raw.githubusercontent.com/StellarisStudio/Tampermonkey-Scripts/master/direct-links-out.user.js) &#x1F6A8;**Outdated**
 Removes all "You are leaving our site" and redirection stuff from links! Which means a better anonymity and faster surfing!
 ###### Currently supported (main domain & subdomains):
 google (with local versions) - youtube - facebook - twitter - steamcommunity - deviantart - soundcloud - upwork - addons.mozilla - pixiv - tumblr - yandex (with local versions) - vk - ok - joyreactor - 4pda - kat (kickass torrents) (with mirrors) - danieldefo - yaplaka - pikarto - taker.

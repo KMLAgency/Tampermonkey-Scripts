@@ -8,9 +8,9 @@
 // @supportURL   https://github.com/StellarisStudio/Tampermonkey-Scripts
 // @author       Loky (StellarisStudio)
 // @homepageURL  https://github.com/StellarisStudio/Tampermonkey-Scripts
-// @grant        none
 // @include      /https://www\.?google\..+?/search/
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
+// @grant        none
 // ==/UserScript==
 
 var xurl, progressBar, xIMG, xPlaceholder, xCurrentClass, xPos;
